@@ -78,11 +78,11 @@ class Node implements NodeInterface {
     public boolean equals(Object n) {
         if (n == null)
         {
-            throw new NullPointerException("Object is empty");
+            throw new NullPointerException("Object is empty.");
         }
         else if (n.getClass() != this.getClass())
         {
-            throw new IllegalArgumentException("Object entered is not a node");
+            throw new IllegalArgumentException("Object entered is not a node.");
         }
 
         Node node = (Node) n;
