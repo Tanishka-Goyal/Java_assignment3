@@ -68,19 +68,25 @@ class Node implements NodeInterface {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + (int) id;
-        hash = 31 * hash + (name == null ? 0 : name.hashCode());
-        hash = 31 * hash + (suburb == null ? 0 : suburb.hashCode());
+        int hash = 0;
+        hash = (id << 8) + (name == null ? 0 : name.length());
+        hash = (hash << 8) + (suburb == null ? 0 : suburb.length());
         return hash;
     }
 
     @Override
     public boolean equals(Object n) {
-        if (this == n) return true;
-        if (n == null) return false;
-        if (this.getClass() != n.getClass()) return false;
+        if (n == null)
+        {
+            throw new NullPointerException("Object is empty");
+        }
+        else if (n.getClass() != this.getClass())
+        {
+            throw new IllegalArgumentException("Object entered is not a node");
+        }
+
         Node node = (Node) n;
-        return id == node.id && (name.equals(node.name));
+
+        return this.hashCode() == node.hashCode();
     }
 }
