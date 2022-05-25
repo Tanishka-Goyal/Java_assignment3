@@ -9,7 +9,7 @@ public class Edge {
     }
 
     public String toString() {
-        String node = "{id = " + ", " +
+        String node = "{" +
                 this.friend.getID()+ ", " +
                 this.friend.getName() + ", " +
                 this.friend.getDateOB() + ", " +
